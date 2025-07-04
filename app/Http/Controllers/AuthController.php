@@ -48,4 +48,10 @@ class AuthController extends Controller
             return redirect('/auth')->with('error', ' akun yang kamu masukan tidak terdaftar');
         }
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('auth');
+    }
 }
