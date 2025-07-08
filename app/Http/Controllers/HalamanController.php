@@ -16,4 +16,12 @@ class HalamanController extends Controller
         $halaman = Halaman::all();
         return view('dashboard.halaman.index', compact('halaman'));
     }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('dashboard.halaman.create');
+    }
 }
