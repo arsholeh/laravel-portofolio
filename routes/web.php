@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HalamanController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EducationController;
 use App\Http\Controllers\ExperienceController;
 
 Route::get('/', function () {
@@ -28,5 +29,6 @@ Route::prefix('dashboard')->group(
         Route::get('/', [DashboardController::class, 'index'])->middleware('auth');
         Route::resource('halaman', HalamanController::class)->middleware('auth');
         Route::resource('experience', ExperienceController::class)->middleware('auth');
+        Route::resource('education', EducationController::class)->middleware('auth');
     }
 );
