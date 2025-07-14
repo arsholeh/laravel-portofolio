@@ -34,28 +34,28 @@ class AuthController extends Controller
 
         $cek = User::where('email', $email)->count();
 
-        if ($cek > 0) {
-            $avatarFile = $id . '.jpg';
-            $fileContent = file_get_contents($avatar);
-            File::put(public_path("assets/img/user/$avatarFile"), $fileContent);
+        // if ($cek > 0) {
+        $avatarFile = $id . '.jpg';
+        $fileContent = file_get_contents($avatar);
+        File::put(public_path("assets/img/user/$avatarFile"), $fileContent);
 
 
-            $user = User::updateOrCreate(
+        $user = User::updateOrCreate(
 
-                [
-                    'email' => $email,
-                    'name' => $name,
-                    'google_id' => $id,
-                    'avatar' => $avatarFile
-                ]
-            );
+            [
+                'email' => $email,
+                'name' => $name,
+                'google_id' => $id,
+                'avatar' => $avatarFile
+            ]
+        );
 
-            Auth::login($user);
+        Auth::login($user);
 
-            return redirect('/dashboard');
-        } else {
-            return redirect('/auth')->with('error', ' akun yang kamu masukan tidak terdaftar');
-        }
+        return redirect('/dashboard');
+        // } else {
+        //     return redirect('/auth')->with('error', ' akun yang kamu masukan tidak terdaftar');
+        // }
     }
 
     public function logout()

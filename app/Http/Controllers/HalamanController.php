@@ -95,6 +95,6 @@ class HalamanController extends Controller
         $halaman = Halaman::findOrFail($id);
         $halaman->delete();
 
-        return redirect()->route('halaman.index')->with('success', 'Berhasil menghapus datas data');
+        return redirect()->route('halaman.index')->with('success', 'Berhasil menghapus data');
     }
 }
